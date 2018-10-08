@@ -7,19 +7,13 @@ db.sync({ force: true }).then(() => {
       name: 'Claire',
       email: 'claire@gmail.com',
     },
+    {
+      name: 'Sarai',
+      email: 'sarai@gmail.com',
+    },
   ])
     .then(() => {
-      List.bulkCreate([
-        {
-          // title: 'Title 0', // how do i just let it be the detault value
-        },
-        {
-          title: 'Title 1', // how do i just let it be the detault value
-        },
-        {
-          title: 'Title2', // how do i just let it be the detault value
-        },
-      ]);
+      List.bulkCreate([{}, {}, {}]);
     })
     .then(() => {
       return ListItem.bulkCreate([
