@@ -5,15 +5,7 @@ const db = new Sequelize('postgres://localhost:5432/todotoday', {
 
 // Defining Models:
 
-const List = db.define('list', {
-  title: {
-    type: Sequelize.STRING,
-    allowNull: false,
-    defaultValue: `To Do Today: ${new Date().getDate()}/${new Date().getDay()}/${new Date().getFullYear()}`,
-  },
-});
-
-const ListItem = db.define('listItem', {
+const ToDo = db.define('todo', {
   title: {
     type: Sequelize.STRING,
     allowNull: false,
@@ -57,12 +49,20 @@ const User = db.define('user', {
   },
 });
 
+const List = db.define('list', {
+  title: {
+    type: Sequelize.STRING,
+    allowNull: false,
+    defaultValue: `To Do Today: ${new Date().getDate()}/${new Date().getDay()}/${new Date().getFullYear()}`,
+  },
+});
+
 // Associations
 
-ListItem.belongsTo(List);
-List.hasMany(ListItem);
+ToDo.belongsTo(List);
+List.hasMany(ToDo);
 
 User.hasOne(List);
 List.belongsTo(User);
 
-module.exports = { db, List, ListItem, User };
+module.exports = { db, List, ToDo, User };

@@ -1,4 +1,4 @@
-const { db, List, ListItem, User } = require('./backend/db');
+const { db, List, ToDo, User } = require('./backend/db');
 db.sync({ force: true }).then(() => {
   console.log('Database synced!!!');
   return User.bulkCreate([
@@ -10,12 +10,33 @@ db.sync({ force: true }).then(() => {
       name: 'Sarai',
       email: 'sarai@gmail.com',
     },
+    {
+      name: 'Mary',
+      email: 'mary@gmail.com',
+    },
+    {
+      name: 'Steve',
+      email: 'steve@gmail.com',
+    },
   ])
     .then(() => {
-      List.bulkCreate([{}, {}, {}]);
+      List.bulkCreate([
+        {
+          userId: 1,
+        },
+        {
+          userId: 2,
+        },
+        {
+          userId: 3,
+        },
+        {
+          userId: 4,
+        },
+      ]);
     })
     .then(() => {
-      return ListItem.bulkCreate([
+      return ToDo.bulkCreate([
         {
           title: 'Walk the dogs',
           expectedTime: 45.0,
@@ -24,6 +45,7 @@ db.sync({ force: true }).then(() => {
           email: null,
           details: "Remember to bring bags, treats and Moqi's ball",
           completed: false,
+          listId: 2,
         },
         {
           title: 'Drop Sarai off at playdate',
@@ -33,6 +55,13 @@ db.sync({ force: true }).then(() => {
           details:
             'Child name is Victoria, dad name is John. Know each other from soccer. Even allergic to peanuts',
           completed: false,
+          listId: 1,
+        },
+        {
+          title: 'Clean room',
+          expectedTime: 60.0,
+          completed: false,
+          listId: 1,
         },
         {
           title: 'Book doctors appointment for Claire',
@@ -41,6 +70,15 @@ db.sync({ force: true }).then(() => {
           phone: '+1-(212) 965-7000',
           details: 'She can only do afternoon appointments after 3pm',
           completed: false,
+          listId: 3,
+        },
+        {
+          title: 'Grade exams',
+          expectedTime: 90,
+          location: null,
+          details: 'Try to finish before Sarai and CLaire get home',
+          completed: false,
+          listId: 4,
         },
       ]);
     })
