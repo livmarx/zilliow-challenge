@@ -1,4 +1,3 @@
-// const Sequelize = require('sequelize');
 const { db, List, ListItem, User } = require('./backend/db');
 db.sync({ force: true }).then(() => {
   console.log('Database synced!!!');
@@ -52,9 +51,3 @@ db.sync({ force: true }).then(() => {
       console.log(`Oh no! We have an error: ${err}!!!`);
     });
 });
-// All the below is from tripplanner and i do not understand anyof it!... :(
-
-// look at plantr
-// hard code listId in listItem
-// impot db and models
-// Then sync in seed file

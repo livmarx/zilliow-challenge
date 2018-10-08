@@ -3,14 +3,9 @@ const db = new Sequelize('postgres://localhost:5432/todotoday', {
   logging: false,
 });
 
-//Questions:
-// 1. Default value of list title
-// 2. How am i making tables?
-// 3. Seed file format? seed...??
-
 // Defining Models:
 
-const List = db.define('user', {
+const List = db.define('list', {
   title: {
     type: Sequelize.STRING,
     allowNull: false,
@@ -34,7 +29,6 @@ const ListItem = db.define('listItem', {
   },
   email: {
     type: Sequelize.STRING,
-    // isEmail: true, <- why is this not okay?
     validate: {
       isEmail: true,
     },
@@ -49,8 +43,7 @@ const ListItem = db.define('listItem', {
   },
 });
 
-const User = db.define('list', {
-  // ID is autogenetrated and we don't need to define in table (?)
+const User = db.define('user', {
   name: {
     type: Sequelize.STRING,
     allowNull: false,
