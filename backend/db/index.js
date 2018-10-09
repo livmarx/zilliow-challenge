@@ -5,6 +5,10 @@ const db = new Sequelize('postgres://localhost:5432/todotoday', {
 
 // Defining Models:
 
+// const { ToDo } = require('./ToDo');
+// const { User } = require('./User');
+// const { List } = require('./List');
+
 const ToDo = db.define('todo', {
   title: {
     type: Sequelize.STRING,
