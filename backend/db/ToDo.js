@@ -1,7 +1,5 @@
 const Sequelize = require('sequelize');
-const db = require('./index');
-
-console.log(db);
+const { db } = require('./dbServer');
 
 const ToDo = db.define('todo', {
   title: {

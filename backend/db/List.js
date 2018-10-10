@@ -1,6 +1,5 @@
 const Sequelize = require('sequelize');
-const { db } = require('./index');
-
+const { db } = require('./dbServer');
 const List = db.define('list', {
   title: {
     type: Sequelize.STRING,
