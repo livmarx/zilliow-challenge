@@ -20,11 +20,19 @@
         font-size: 15px;
         color: darkslategrey;
       }
+
+      h6 {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #618685;
+        margin: 3%;
+      }
       .header h4 {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         font-size: 20px;
       }
-
+      .header {
+        display: inline;
+      }
       p {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         font-size: 12px;
@@ -56,6 +64,12 @@
         padding: 0px;
         margin: 0px;
         justify-content: center;
+      }
+
+      @media only screen and (max-width: 750px) {
+        .events {
+          background-color: yellow;
+        }
       }
 
       .event:hover {

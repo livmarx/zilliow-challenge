@@ -184,6 +184,7 @@ export default class App extends React.Component {
             );
           })}
         </div>
+        <h6>Sponsored Links by Taboola</h6>
       </div>
     );
   }
