@@ -1,0 +1,10 @@
+html,
+body,
+h2 {
+  font-family: 'Courier New', Courier, monospace;
+  color: brown;
+}
+
+img {
+  height: 150px;
+}
