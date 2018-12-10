@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const app = express(); // object with methods; One method is router; express creates a server; app allows us to access the server; app.listen hooks up our server;
 
 const morgan = require('morgan'); //app.use(...) morgan says console.log(what app.use does);
@@ -13,6 +14,7 @@ app.use(express.json());
 
 // public:
 app.use(express.static(__dirname + '/public'));
+// app.use(express.static(path.join(__dirname, '..', 'public')));
 
 // Routes
 // app.use('/api', require('./backend/routes/index'));

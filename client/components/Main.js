@@ -165,18 +165,22 @@ export default class App extends React.Component {
     const events = this.state.events || [];
     console.log('all events: ', events);
     return (
-      <div className="events">
-        <h2>Hello from client/components/Main.js !!</h2>
-        {events.map(event => {
-          return (
-            <div key={event.id}>
-              <h4>{event.name}</h4>
-              <img src={event.thumbnail[0].url} className="thumbnail" />
-              <p>{event.branding}</p>
-              <br />
-            </div>
-          );
-        })}
+      <div className="main">
+        <div className="header">
+          <h4>More content you might be interested in:</h4>
+        </div>
+        <div className="events">
+          {events.map(event => {
+            return (
+              <div className="event" key={event.id}>
+                <h4>{event.name}</h4>
+                <img src={event.thumbnail[0].url} className="thumbnail" />
+                <p>{event.branding}</p>
+                <br />
+              </div>
+            );
+          })}
+        </div>
       </div>
     );
   }
