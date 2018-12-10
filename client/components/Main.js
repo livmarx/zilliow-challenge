@@ -67,7 +67,7 @@ export default class App extends React.Component {
           created: 'Sun, 18 Nov 2018 11:20:47 UTC',
           branding: 'Joorala',
           duration: '0',
-          categories: ['entertainment'],
+          categories: ['entertainment, olivia'],
           views: '0',
           id:
             '~~V1~~271654086396141611~~Je0JlcC8DanrQdJGcXhkOT3jULFZk4h9IlRJOu35qysgADLX0sCLI84lvxeYoNVBXtEiVLHvk6BFwXvQihx-5v9Xkm0139tEO6Qib8QV3Exzb1UUjkFNyhu-IeNM1dcRHYhY50PCdoUlKDc1fD5Mnm9EHoLj9R7qz7lU62yNL64dZZ0aEgfYDhs17TmkBktH',
@@ -176,6 +176,9 @@ export default class App extends React.Component {
                 <h4>{event.name}</h4>
                 <img src={event.thumbnail[0].url} className="thumbnail" />
                 <p>{event.branding}</p>
+                {event.categories.map(cat => {
+                  return <p>#{cat}</p>;
+                })}
                 <br />
               </div>
             );
