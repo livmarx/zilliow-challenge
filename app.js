@@ -35,7 +35,7 @@ app.use(express.static(__dirname + '/public'));
 //   }
 // });
 
-const PORT = 8888;
+const PORT = process.env.PORT || 8888;
 
 const init = async function() {
   // await db.sync();
