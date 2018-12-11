@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 export default class App extends React.Component {
   constructor() {
@@ -174,15 +175,17 @@ export default class App extends React.Component {
           {events.map(event => {
             return (
               <div className="event" key={event.id}>
-                <h4>{event.name}</h4>
-                <img src={event.thumbnail[0].url} className="thumbnail" />
-                <p>{event.branding}</p>
-                <p>
-                  {event.categories.map(cat => {
-                    return `#${cat} `;
-                  })}
-                </p>
-                <br />
+                <Link to="www.espn.go.com">
+                  <h4>{event.name}</h4>
+                  <img src={event.thumbnail[0].url} className="thumbnail" />
+                  <p>{event.branding}</p>
+                  <p>
+                    {event.categories.map(cat => {
+                      return `#${cat} `;
+                    })}
+                  </p>
+                  <br />
+                </Link>
               </div>
             );
           })}
