@@ -13,7 +13,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 // public:
+console.log('dirname', __dirname);
 app.use(express.static(__dirname + '/public'));
+// app.use(express.static(__dirname + '/public/style.css'));
 // app.use(express.static(path.join(__dirname, '..', 'public')));
 
 // Routes
