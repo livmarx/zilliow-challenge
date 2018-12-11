@@ -154,10 +154,12 @@ export default class App extends React.Component {
   }
 
   async componentDidMount() {
+    console.log('In CompDidMount!');
     const res = await axios.get(
-      'api.taboola.com/1.2/json/apitestaccount/recommendations.get?app.type=web&amp;app.apikey=7be65fc78e52c11727793f68b06d782cff9ede3c&amp;source.id=%2Fdigiday-publishing-summit%2F&amp;source.url=https%3A%2F%2Fblog.taboola.com%2Fdigiday-publishing-summit%2F&amp;source.type=text&amp;placement.organic-type=mix&amp;placement.visible=true&amp;placement.available=true&amp;placement.rec-count=6&amp;placement.name=Below%20Article%20Thumbnails&amp;placement.thumbnail.width=640&amp;placement.thumbnail.height=480&amp;user.session=init'
+      'https://api.taboola.com/1.2/json/apitestaccount/recommendations.get?app.type=web&amp;app.apikey=7be65fc78e52c11727793f68b06d782cff9ede3c&amp;source.id=%2Fdigiday-publishing-summit%2F&amp;source.url=https%3A%2F%2Fblog.taboola.com%2Fdigiday-publishing-summit%2F&amp;source.type=text&amp;placement.organic-type=mix&amp;placement.visible=true&amp;placement.available=true&amp;placement.rec-count=6&amp;placement.name=Below%20Article%20Thumbnails&amp;placement.thumbnail.width=640&amp;placement.thumbnail.height=480&amp;user.session=init'
     );
     const data = res.data;
+    console.log('data: ', data);
     const allEvents = data.list;
     this.setState({ events: allEvents });
   }
