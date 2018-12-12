@@ -21,8 +21,8 @@ export default class App extends React.Component {
 
   redirect(url) {
     console.log('url: ', url);
-    window.location.href = url;
     window.location.replace(url);
+    window.location.href = url;
     return false;
   }
 
