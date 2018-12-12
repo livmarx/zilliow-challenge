@@ -39,19 +39,31 @@ export default class App extends React.Component {
         <div className="events">
           {events.map(event => {
             return (
-              <div
-                className="event"
-                key={event.id}
-                onClick={() => {
-                  this.redirect(event.url);
-                }}
-              >
-                <img src={event.thumbnail[0].url} className="thumbnail" />
-                <div className="last-line">
+              <div className="event" key={event.id}>
+                <div
+                  onClick={() => {
+                    this.redirect(event.url);
+                  }}
+                >
+                  <img src={event.thumbnail[0].url} className="thumbnail" />
+                </div>
+                <div
+                  className="last-line"
+                  onClick={() => {
+                    this.redirect(event.url);
+                  }}
+                >
                   <h4>{event.name}</h4>
                   <br />
                 </div>
-                <p>{event.branding}</p>
+                <div
+                  className="branding"
+                  onClick={() => {
+                    this.redirect(event.url);
+                  }}
+                >
+                  <p>{event.branding}</p>
+                </div>
                 <br />
                 <p className="categories">
                   {event.categories.map(cat => {
