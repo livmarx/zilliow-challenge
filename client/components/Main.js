@@ -49,9 +49,11 @@ export default class App extends React.Component {
                 <img src={event.thumbnail[0].url} className="thumbnail" />
                 <div className="last-line">
                   <h4>{event.name}</h4>
+                  <br />
                 </div>
                 <p>{event.branding}</p>
-                <p>
+                <br />
+                <p className="categories">
                   {event.categories.map(cat => {
                     return `#${cat} `;
                   })}
