@@ -36,6 +36,8 @@
       .header h4 {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         font-size: 20px;
+        padding-top: 25px;
+        padding-left: 30px;
       }
 
       p {
@@ -75,11 +77,6 @@
       }
 
       .last-line {
-        /* text-overflow: ellipsis;
-        height: 3.6em;  */
-        /* exactly three lines */
-        /* padding-bottom: 0.4em;
-        overflow: hidden; */
         display: -webkit-box;
         -webkit-line-clamp: 3;
         -webkit-box-orient: vertical;
@@ -89,6 +86,15 @@
       @media only screen and (min-width: 850px) {
         .main {
           width: 800px;
+        }
+      }
+
+      @media only screen and (max-width: 690px) {
+        .header {
+          flex-direction: column;
+        }
+        .header h6 {
+          margin-left: 30px;
         }
       }
 
