@@ -30,16 +30,17 @@ export default class App extends React.Component {
       <div className="main">
         <div className="header">
           <h4>More content you might be interested in:</h4>
+          <h6>Sponsored Links by Taboola</h6>
         </div>
         <div className="events">
           {events.map(event => {
             return (
               <div className="event" key={event.id}>
                 <Link to={event.url}>
+                  <img src={event.thumbnail[0].url} className="thumbnail" />
                   <div className="last-line">
                     <h4>{event.name}</h4>
                   </div>
-                  <img src={event.thumbnail[0].url} className="thumbnail" />
                   <p>{event.branding}</p>
                   <p>
                     {event.categories.map(cat => {
@@ -52,7 +53,6 @@ export default class App extends React.Component {
             );
           })}
         </div>
-        <h6>Sponsored Links by Taboola</h6>
       </div>
     );
   }
