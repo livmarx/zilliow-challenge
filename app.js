@@ -15,25 +15,6 @@ app.use(express.json());
 // public:
 console.log('dirname', __dirname);
 app.use(express.static(__dirname + '/public'));
-// app.use(express.static(__dirname + '/public/style.css'));
-// app.use(express.static(path.join(__dirname, '..', 'public')));
-
-// Routes
-// app.use('/api', require('./backend/routes/index'));
-
-// app.get('/', function(req, res, next) {
-//   try {
-//     // I will want to re-direct to other routes
-//     console.log(
-//       'Hazzah! We have made successfully made a GET request through our foraged slash route!'
-//     );
-//     res.send(
-//       'Hazzah! We have made successfully made a GET request through our foraged slash route!'
-//     );
-//   } catch (err) {
-//     next(err);
-//   }
-// });
 
 const PORT = process.env.PORT || 8888;
 
