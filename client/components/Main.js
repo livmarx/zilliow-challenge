@@ -35,11 +35,10 @@ export default class App extends React.Component {
           {events.map(event => {
             return (
               <div className="event" key={event.id}>
-                <Link
-                  to="www.
-                espn.go.com"
-                >
-                  <h4>{event.name}</h4>
+                <Link to={event.url}>
+                  <div className="last-line">
+                    <h4>{event.name}</h4>
+                  </div>
                   <img src={event.thumbnail[0].url} className="thumbnail" />
                   <p>{event.branding}</p>
                   <p>
