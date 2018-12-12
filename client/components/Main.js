@@ -8,18 +8,22 @@ export default class App extends React.Component {
     this.state = {
       events: [],
     };
+    this.redirect = this.redirect.bind();
   }
 
   async componentDidMount() {
-    console.log('In CompDidMount!');
-    console.log('STATE', this.state);
     const res = await axios.get(
       'https://api.taboola.com/1.2/json/apitestaccount/recommendations.get?app.type=web&app.apikey=7be65fc78e52c11727793f68b06d782cff9ede3c&source.id=%2Fdigiday-publishing-summit%2F&source.url=https%3A%2F%2Fblog.taboola.com%2Fdigiday-publishing-summit%2F&source.type=text&placement.organic-type=mix&placement.visible=true&placement.available=true&placement.rec-count=6&placement.name=Below%20Article%20Thumbnails&placement.thumbnail.width=640&placement.thumbnail.height=480&user.session=init'
     );
     const allEvents = res.data.list;
-    console.log('allEvents: ', allEvents);
     this.setState({ events: allEvents });
-    console.log('STATE', this.state);
+  }
+
+  redirect(url) {
+    console.log('url: ', url);
+    window.location.href = url;
+    window.location.replace(url);
+    return false;
   }
 
   render() {
@@ -35,20 +39,24 @@ export default class App extends React.Component {
         <div className="events">
           {events.map(event => {
             return (
-              <div className="event" key={event.id}>
-                <Link to={event.url}>
-                  <img src={event.thumbnail[0].url} className="thumbnail" />
-                  <div className="last-line">
-                    <h4>{event.name}</h4>
-                  </div>
-                  <p>{event.branding}</p>
-                  <p>
-                    {event.categories.map(cat => {
-                      return `#${cat} `;
-                    })}
-                  </p>
-                  <br />
-                </Link>
+              <div
+                className="event"
+                key={event.id}
+                onClick={() => {
+                  this.redirect(event.url);
+                }}
+              >
+                <img src={event.thumbnail[0].url} className="thumbnail" />
+                <div className="last-line">
+                  <h4>{event.name}</h4>
+                </div>
+                <p>{event.branding}</p>
+                <p>
+                  {event.categories.map(cat => {
+                    return `#${cat} `;
+                  })}
+                </p>
+                <br />
               </div>
             );
           })}
