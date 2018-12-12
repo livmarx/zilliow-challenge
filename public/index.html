@@ -19,20 +19,25 @@
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         font-size: 15px;
         color: darkslategrey;
+        overflow: hidden;
+      }
+      .header {
+        display: flex;
+        justify-content: space-between;
       }
 
       h6 {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         color: #618685;
-        margin: 3%;
+        margin-right: 30px;
+        padding-top: 10px;
       }
+
       .header h4 {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         font-size: 20px;
       }
-      .header {
-        display: inline;
-      }
+
       p {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         font-size: 12px;
@@ -67,9 +72,14 @@
       }
 
       .last-line {
-        text-overflow: ellipsis;
-        height: 3.6em; /* exactly three lines */
-        padding-bottom: 0.4em;
+        /* text-overflow: ellipsis;
+        height: 3.6em;  */
+        /* exactly three lines */
+        /* padding-bottom: 0.4em;
+        overflow: hidden; */
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
         overflow: hidden;
       }
 
