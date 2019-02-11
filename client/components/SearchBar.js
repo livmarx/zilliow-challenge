@@ -5,6 +5,7 @@ import getRepoNames from './getRepoNames';
 import { getUser } from '../store/actions';
 import { connect } from 'react-redux';
 import shhhh from '../../shhhh';
+import Table from './Table';
 
 class SearchBar extends React.Component {
   constructor() {
@@ -66,6 +67,7 @@ class SearchBar extends React.Component {
           </button>
         </form>
         <div>
+          {this.state.status === true && <Table data={repos} />}
           {this.state.status === false && <p>No matching username</p>}
           {this.state.status === null && <p>Type a username</p>}
           {this.state.status === true && (
