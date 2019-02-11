@@ -1,6 +1,6 @@
 import React from 'react';
 import getRepoNames from './getRepoNames';
-import { getUser } from '../store/actions';
+import ErrorMessage from './ErrorMessage';
 import shhhh from '../../shhhh';
 import Table from './Table';
 
@@ -9,6 +9,7 @@ export default class SearchBar extends React.Component {
     super();
     this.state = {
       input: '',
+      lastInput: '',
       user: {},
       repos: [],
       status: null,
@@ -37,7 +38,7 @@ export default class SearchBar extends React.Component {
         status: true,
       });
     } else {
-      this.setState({ status: false, input: '' });
+      this.setState({ status: false, input: '', lastInput: this.state.input });
     }
   }
 
@@ -50,7 +51,10 @@ export default class SearchBar extends React.Component {
         <div>
           {this.state.status === null && <p>Type a GitHub username</p>}
           {this.state.status === false && (
-            <p>No matching username. Try again!</p>
+            <div>
+              <p>No matching username. Try again!</p>
+              <ErrorMessage userName={this.state.lastInput} />
+            </div>
           )}
           {this.state.status === true && <p>Type a GitHub username</p>}
         </div>
