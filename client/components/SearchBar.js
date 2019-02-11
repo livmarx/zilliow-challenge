@@ -3,6 +3,7 @@ import getRepoNames from './getRepoNames';
 import ErrorMessage from './ErrorMessage';
 import shhhh from '../../shhhh';
 import Table from './Table';
+import UserInfo from './UserInfo';
 
 export default class SearchBar extends React.Component {
   constructor() {
@@ -48,19 +49,10 @@ export default class SearchBar extends React.Component {
     console.log('USER: ', user);
     return (
       <div className="search-bars">
-        <div>
-          {this.state.status === null && <p>Type a GitHub username</p>}
-          {this.state.status === false && (
-            <div>
-              <p>No matching username. Try again!</p>
-              <ErrorMessage userName={this.state.lastInput} />
-            </div>
-          )}
-          {this.state.status === true && <p>Type a GitHub username</p>}
-        </div>
         <form onSubmit={this.handleSubmit}>
           Search:{'  '}
           <input
+            className="input-bar"
             type="text"
             name="username"
             value={this.state.input}
@@ -75,12 +67,21 @@ export default class SearchBar extends React.Component {
             Seach
           </button>
         </form>
+        <p className="github">Powered by Github</p>
         {this.state.status === true && (
           <div>
-            <p>{user.login}</p>
+            <UserInfo user={user} />
+            <div className="repos">
+              <p>Repos with the Top Ten Most Commits Over the Last Year</p>
+            </div>
           </div>
         )}
         {this.state.status === true && <Table data={repos} />}
+        {this.state.status === false && (
+          <div>
+            <ErrorMessage userName={this.state.lastInput} />
+          </div>
+        )}
       </div>
     );
   }

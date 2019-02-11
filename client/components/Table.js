@@ -7,9 +7,8 @@ export default function Table(props) {
     <table>
       <thead>
         <tr>
-          {cols.map((col, i) => (
-            <th>{col}</th>
-          ))}
+          <th>Repository Name</th>
+          <th>Total Commits Over Last Year</th>
         </tr>
       </thead>
       <tbody>

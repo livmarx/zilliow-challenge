@@ -1,14 +1,106 @@
+html {
+  background-color: lightblue;
+}
+
+.main {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+}
+
+.main h1 {
+  font-size: 40px;
+  color: lightcyan;
+  text-shadow: 3px 1px 3px slategrey;
+  margin: 3px;
+}
+
+.main .header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main p {
+  color: slategray;
+}
+
+.main .github {
+  font-size: 10px;
+  color: slategray;
+}
+
+/* User Info */
+.user-info {
+  display: flex;
+  flex-direction: row;
+  color: white;
+  padding: 20px 10px 10px 0px;
+  background-color: #7ba6af;
+  border-radius: 10px;
+  box-shadow: 1px 1px black, 0 0 2px slategray, 0 0 5px darkblue;
+}
+
+.user-info img {
+  width: 120px;
+  height: 120px;
+  margin: 10px 10px 10px 10px;
+  box-shadow: 1px 1px black, 0 0 2px slategray, 0 0 5px darkblue;
+}
+
+.user-names h2,
+h3 {
+  margin: 10px;
+  color: #d0dfe2;
+}
+
+.input-bar {
+  width: 365px;
+}
+.repos p {
+  margin-top: 50px;
+  color: black;
+}
+.repos {
+  display: flex;
+  justify-content: center;
+}
+
+.error-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 460px;
+  margin: 0;
+  padding: 10px;
+  background-color: #fc8d96;
+  color: #c91c2a;
+  border-radius: 10px;
+  box-shadow: 1px 1px black, 0 0 2px slategray, 0 0 5px darkblue;
+}
+.error-message p {
+  color: white;
+}
+.error-message h3 {
+  margin: 0;
+}
+
+/* Table Component: */
 table {
   margin: 1rem 0;
   border-collapse: collapse;
+  background-color: white;
+  box-shadow: 1px 1px black, 0 0 25px slategray, 0 0 5px darkblue;
 }
 
 th,
 td {
   padding: 1rem;
-  border: 1px solid lightgray;
+  border: 1px solid black;
 }
 
 th {
-  background-color: rgb(230, 230, 230);
+  background-color: slategrey;
+  color: white;
 }

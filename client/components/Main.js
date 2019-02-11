@@ -5,10 +5,12 @@ export default class Main extends React.Component {
   render() {
     return (
       <div className="main">
-        <div className="header">
-          <h4>Zillow Challenge</h4>
+        <div>
+          <div className="header">
+            <h1>Zillow Challenge</h1>
+            <p>By Olivia Marks</p>
+          </div>
           <SearchBar />
-          <div />
         </div>
       </div>
     );

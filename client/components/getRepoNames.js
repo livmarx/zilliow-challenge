@@ -21,9 +21,9 @@ export default async function getRepoNames(searchInput) {
         const total = Array.isArray(commitHistData)
           ? commitHistData.reduce((acc, cur) => acc + cur.total, 0)
           : 0;
-        return { total, name };
+        return { name, total };
       } else {
-        return { total: 0, name };
+        return { name, total: 0 };
       }
     })
   );
