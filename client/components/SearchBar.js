@@ -4,6 +4,7 @@ import axios from 'axios';
 import getRepoNames from './getRepoNames';
 import { getUser } from '../store/actions';
 import { connect } from 'react-redux';
+import shhhh from '../../shhhh';
 
 class SearchBar extends React.Component {
   constructor() {
@@ -12,6 +13,7 @@ class SearchBar extends React.Component {
       input: '',
       user: {},
       repos: [],
+      status: null,
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -23,22 +25,27 @@ class SearchBar extends React.Component {
 
   async handleSubmit(event) {
     event.preventDefault();
-    const user = (await axios.get(
-      `https://api.github.com/users/${this.state.input}`
-    )).data;
-    const repos = await getRepoNames(this.state.input);
-    this.setState({
-      user,
-      repos,
-      input: '',
-    });
+    const res = await fetch(
+      `https://api.github.com/users/${this.state.input}?access_token=${shhhh}`
+    );
+
+    if (res.ok) {
+      const user = await res.json();
+      const repos = await getRepoNames(this.state.input);
+      this.setState({
+        user,
+        repos,
+        input: '',
+        status: true,
+      });
+    } else {
+      this.setState({ status: false, input: '' });
+    }
   }
 
   render() {
     const user = this.state.user;
     const repos = this.state.repos;
-    console.log('USER: ', user);
-    console.log('REOPS: ', repos);
     return (
       <div className="search-bars">
         <form onSubmit={this.handleSubmit}>
@@ -58,7 +65,27 @@ class SearchBar extends React.Component {
             Seach
           </button>
         </form>
-        <div>{user.login ? <p>{user.login}</p> : <p>HHHHHHH</p>}</div>
+        <div>
+          {this.state.status === false && <p>No matching username</p>}
+          {this.state.status === null && <p>Type a username</p>}
+          {this.state.status === true && (
+            <div>
+              <p>{user.login}</p>
+              <div>
+                {repos.map((repo, i) => {
+                  return (
+                    <div key={i}>
+                      <ul>
+                        <li>{repo.name}</li>
+                        <li>{repo.total}</li>
+                      </ul>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+        </div>
       </div>
     );
   }
