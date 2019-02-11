@@ -7,13 +7,13 @@ export default function Table(props) {
     <table>
       <thead>
         <tr>
-          {cols.map(col => (
+          {cols.map((col, i) => (
             <th>{col}</th>
           ))}
         </tr>
       </thead>
       <tbody>
-        {rows.map((row, index) => (
+        {rows.map((row, i) => (
           <tr>
             {cols.map(col => (
               <td>{row[col]}</td>

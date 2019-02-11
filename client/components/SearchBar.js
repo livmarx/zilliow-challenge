@@ -1,13 +1,10 @@
 import React from 'react';
-import axios from 'axios';
-
 import getRepoNames from './getRepoNames';
 import { getUser } from '../store/actions';
-import { connect } from 'react-redux';
 import shhhh from '../../shhhh';
 import Table from './Table';
 
-class SearchBar extends React.Component {
+export default class SearchBar extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -47,8 +44,16 @@ class SearchBar extends React.Component {
   render() {
     const user = this.state.user;
     const repos = this.state.repos;
+    console.log('USER: ', user);
     return (
       <div className="search-bars">
+        <div>
+          {this.state.status === null && <p>Type a GitHub username</p>}
+          {this.state.status === false && (
+            <p>No matching username. Try again!</p>
+          )}
+          {this.state.status === true && <p>Type a GitHub username</p>}
+        </div>
         <form onSubmit={this.handleSubmit}>
           Search:{'  '}
           <input
@@ -66,45 +71,13 @@ class SearchBar extends React.Component {
             Seach
           </button>
         </form>
-        <div>
-          {this.state.status === true && <Table data={repos} />}
-          {this.state.status === false && <p>No matching username</p>}
-          {this.state.status === null && <p>Type a username</p>}
-          {this.state.status === true && (
-            <div>
-              <p>{user.login}</p>
-              <div>
-                {repos.map((repo, i) => {
-                  return (
-                    <div key={i}>
-                      <ul>
-                        <li>{repo.name}</li>
-                        <li>{repo.total}</li>
-                      </ul>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          )}
-        </div>
+        {this.state.status === true && (
+          <div>
+            <p>{user.login}</p>
+          </div>
+        )}
+        {this.state.status === true && <Table data={repos} />}
       </div>
     );
   }
 }
-// connect component to redux store:
-
-const mapStateToProps = state => {
-  return { repos: state.repos, user: state.user };
-};
-
-const mapDispatchToProps = dispatch => {
-  return {
-    fetchUser: searchInput => dispatch(getUser(searchInput)),
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(SearchBar);
