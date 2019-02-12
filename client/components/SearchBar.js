@@ -5,6 +5,8 @@ import ErrorMessage from './ErrorMessage';
 import Table from './Table';
 import UserInfo from './UserInfo';
 
+const key = process.env.GITHUB_KEY;
+
 export default class SearchBar extends React.Component {
   constructor() {
     super();
@@ -25,10 +27,9 @@ export default class SearchBar extends React.Component {
 
   async handleSubmit(event) {
     event.preventDefault();
+    console.log('key: ', key);
     const res = await fetch(
-      `https://api.github.com/users/${this.state.input}?access_token=${
-        process.env.GITHUB_KEY
-      }`
+      `https://api.github.com/users/${this.state.input}?access_token=${key}`
     );
 
     if (res.ok) {
