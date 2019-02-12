@@ -1,7 +1,7 @@
 import React from 'react';
 import getRepoNames from './getRepoNames';
 import ErrorMessage from './ErrorMessage';
-import shhhh from '../../shhhh';
+// import shhhh from '../../shhhh';
 import Table from './Table';
 import UserInfo from './UserInfo';
 
