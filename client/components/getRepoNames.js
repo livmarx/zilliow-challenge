@@ -1,10 +1,9 @@
-// import shhhh from '../../shhhh';
+import shhhh from '../../shhhh';
 
 export default async function getRepoNames(searchInput) {
   // Create array of user's repos that incluse lots of info inclding name of repo
   const res = await fetch(
-    `https://api.github.com/users/${searchInput}/repos`
-    // ?access_token=${shhhh}`
+    `https://api.github.com/users/${searchInput}/repos?access_token=${shhhh}`
   );
   const repos = await res.json();
 
@@ -15,8 +14,7 @@ export default async function getRepoNames(searchInput) {
   const userHists = await Promise.all(
     repoNames.map(async name => {
       const commitHist = await fetch(
-        `https://api.github.com/repos/${searchInput}/${name}/stats/commit_activity`
-        // ?access_token=${shhhh}`
+        `https://api.github.com/repos/${searchInput}/${name}/stats/commit_activity?access_token=${shhhh}`
       );
       if (commitHist.status === 200) {
         const commitHistData = await commitHist.json();
