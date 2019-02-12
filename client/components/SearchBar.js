@@ -26,7 +26,9 @@ export default class SearchBar extends React.Component {
   async handleSubmit(event) {
     event.preventDefault();
     const res = await fetch(
-      `https://api.github.com/users/${this.state.input}?access_token=${shhhh}`
+      `https://api.github.com/users/${this.state.input}?access_token=${
+        process.env.GITHUB_KEY
+      }`
     );
 
     if (res.ok) {
