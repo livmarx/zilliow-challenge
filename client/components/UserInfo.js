@@ -8,7 +8,9 @@ export default function UserInfo(props) {
         <h2>{props.user.name}</h2>
         <h3>Username: {props.user.login}</h3>
         <p> Contact Info: {props.user.email}</p>
-        <p> GitHub URL: {props.user.html_url}</p>
+        <p>
+          GitHub URL: <a href={props.user.html_url}> {props.user.html_url}</a>
+        </p>
       </div>
     </div>
   );

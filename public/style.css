@@ -29,6 +29,15 @@ html {
 .main .github {
   font-size: 10px;
   color: slategray;
+  margin: 5px 5px 5px 0px;
+}
+
+/* search bars */
+
+.search-bars {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 /* User Info */

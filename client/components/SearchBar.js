@@ -46,7 +46,6 @@ export default class SearchBar extends React.Component {
   render() {
     const user = this.state.user;
     const repos = this.state.repos;
-    console.log('USER: ', user);
     return (
       <div className="search-bars">
         <form onSubmit={this.handleSubmit}>
@@ -68,6 +67,7 @@ export default class SearchBar extends React.Component {
           </button>
         </form>
         <p className="github">Powered by Github</p>
+        <br />
         {this.state.status === true && (
           <div>
             <UserInfo user={user} />
