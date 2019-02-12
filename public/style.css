@@ -36,7 +36,7 @@ html {
   display: flex;
   flex-direction: row;
   color: white;
-  padding: 20px 10px 10px 0px;
+  padding: 20px 10px 10px 10px;
   background-color: #6d92a5;
   border-radius: 10px;
   border: 1px solid black;
@@ -51,9 +51,16 @@ html {
 }
 
 .user-names h2,
-h3 {
+h3,
+p {
   margin: 10px;
   color: #d0dfe2;
+}
+
+.user-names p {
+  margin: 10px;
+  color: #d0dfe2;
+  font-size: 12px;
 }
 
 .input-bar {
