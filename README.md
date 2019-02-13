@@ -1,8 +1,8 @@
-# OM Zillow Challenge# Zillow Code Challenge
+# Zillow Code Challenge
 
 #### By Olivia Marks
 
-### Descpription:
+### Description:
 
 ###### This is a small app that allows users to find informations on GitHub users by searching for a particular GitHub username.
 
@@ -15,19 +15,18 @@
 ###### To install this app:
 
 - `Fork` and `Clone` this repository
-- Run npm install to download dependancies
+- Run npm install to download dependencies
 - Run npm start
-- Naviagte to http://localhost:8800/
+- Navigate to http://localhost:8800/
 
 ### Final Thought / Next Steps:
 
 ###### Some ideas I wrestled with:
 
-- Redux, yes or no?
-- Axios
+- Redux, yes or no? I ultimately decided that this was not a great use-case for Redux since the app was so small.
 
 ###### With more time I would:
 
-- Redux, yes or no?
-- Axios
--
+- GitHub Oauth Key: I was unable to get the process.env.GIT_KEY to work. For now, my key is hard-coded into the API call. If I had more time, I would like to figure this out.
+
+- Error Handling: I would like to integrate semantic error handling. Right now, there is only one error message that the user gets. I would to show different error messages based on the errors thrown.
