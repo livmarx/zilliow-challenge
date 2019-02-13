@@ -1,7 +1,7 @@
 import React from 'react';
 import getRepoNames from './getRepoNames';
 import ErrorMessage from './ErrorMessage';
-import shhhh from '../../shhhh';
+// import shhhh from '../../shhhh';
 import Table from './Table';
 import UserInfo from './UserInfo';
 
@@ -30,7 +30,7 @@ export default class SearchBar extends React.Component {
     console.log('key: ', key);
     console.log(process.env.PORT);
     const res = await fetch(
-      `https://api.github.com/users/${this.state.input}?access_token=${shhhh}`
+      `https://api.github.com/users/${this.state.input}?access_token=${key}`
     );
 
     if (res.ok) {
