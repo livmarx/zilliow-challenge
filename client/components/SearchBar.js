@@ -1,10 +1,10 @@
 import React from 'react';
 import getRepoNames from './getRepoNames';
 import ErrorMessage from './ErrorMessage';
-// import shhhh from '../../shhhh';
 import Table from './Table';
 import UserInfo from './UserInfo';
 
+// import shhhh from '../../shhhh';
 // const key = process.env.GITHUB_KEY;
 
 export default class SearchBar extends React.Component {
@@ -29,9 +29,9 @@ export default class SearchBar extends React.Component {
     event.preventDefault();
     // console.log('key: ', key);
     const res = await fetch(
-      `https://api.github.com/users/${this.state.input}?access_token=${
-        process.env.GITHUB_KEY
-      }`
+      `https://api.github.com/users/${
+        this.state.input
+      }?access_token=a93b2c21918b42df5a28e0e529c627ee22c60de4`
     );
 
     if (res.ok) {
